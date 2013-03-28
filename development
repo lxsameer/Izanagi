@@ -73,7 +73,7 @@ test -x $XEPHYR || { echo "Xephyr executable not found. Please install Xephyr"; 
 
 case "$1" in
     start)
-    $XEPHYR -ac -br -noreset -screen 800x600 :1 &
+    $XEPHYR -ac -br -noreset -screen 600x400 :1 &
     sleep 1
     DISPLAY=:1.0 $AWESOME -c $RC_LUA &
     sleep 1
