@@ -1,6 +1,7 @@
-require("screen")
-require("naughty")
-require("awful.tag")
+local screen = require("screen")
+local naughty = require("naughty")
+local awful = require("awful")
+awful.tag = require("awful.tag")
 
 izanagi = {}
 
@@ -34,8 +35,9 @@ end
 
 function izanagi.go_for(mode)
    local s = mouse.screen
+   local tags = awful.tag.gettags(s)
+   for _, tag in pairs() do
 
-   for _, tag in pairs(screen[s]:tags()) do
       awful.tag.delete(tag)
    end
 end
