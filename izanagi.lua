@@ -94,8 +94,17 @@ function izanagi.prepar_desktop(config)
 	    local layout = require(tags[_].layout)
 	    awful.layout.set(layout, current_tags[tagnum])
 	 end
-	 -- ---------------------------------------
+	 -- --------------------------------------
 
+	 -- Setting up clients in current tag
+	 if tags[_].clients ~= nil then
+	    for client in tags[_].clients do
+	       if client.exec == nil then
+		  notify("One of your clients is missing 'exec' key")
+	       end
+	    end
+	 end
+	 -- --------------------------------------
 	 tagnum = tagnum + 1
       end
 
