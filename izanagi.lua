@@ -3,8 +3,10 @@ local naughty = require("naughty")
 local awful = require("awful")
 awful.util = require("awful.util")
 awful.tag = require("awful.tag")
+awful.layout = require("awful.layout")
 
 izanagi = {}
+
 izanagi.reserved_tags = 3
 
 function notify(text)
@@ -85,6 +87,13 @@ function izanagi.prepar_desktop(config)
 	 -- set only the name of the tag in the config not the number
 	 for j in string.gmatch(_, "%a+$") do name = j end
 	 current_tags[tagnum].name = name
+	 -- ---------------------------------------
+
+	 -- Setup layout of the tag.
+	 if tags[_].layout ~= nil then
+	    local layout = require(tags[_].layout)
+	    awful.layout.set(layout, current_tags[tagnum])
+	 end
 	 -- ---------------------------------------
 
 	 tagnum = tagnum + 1
