@@ -61,12 +61,12 @@ function xephyr_pid()
 
 # If Izanagi version of rc.lua is missing, make a default one.
 # NOTE: rc.lua of Izanagi is just for development
-RC_LUA=`pwd`/rc.lua
+RC_LUA=`pwd`/awesome/rc.lua
 test -f $RC_LUA || /bin/cp /etc/xdg/awesome/rc.lua $RC_LUA
 
 # Just in case we're not running from /usr/bin
 #AWESOME=`which awesome`
-AWESOME=`pwd`/awesome/awesome
+AWESOME=`which awesome`
 XEPHYR=`which Xephyr`
 
 test -x $AWESOME || { echo "Awesome executable not found. Please install Awesome"; exit 1; }
